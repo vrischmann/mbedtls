@@ -1,0 +1,13 @@
+.{
+    .name = "mbedtls",
+    .version = "3.6.2",
+
+    .dependencies = .{},
+
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "library",
+        "include",
+    },
+}
