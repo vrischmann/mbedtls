@@ -1,0 +1,15 @@
+.{
+    .name = .mbedtls,
+    .fingerprint = 0x841b00c2d0c44e76,
+    .minimum_zig_version = "0.14.0",
+    .version = "3.6.2",
+
+    .dependencies = .{},
+
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "library",
+        "include",
+    },
+}
