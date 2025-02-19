@@ -9,21 +9,18 @@ pub fn build(b: *std.Build) void {
     else
         &common_flags;
 
-    const mod = b.createModule(.{
+    const lib = b.addStaticLibrary(.{
+        .name = "mbedtls",
         .target = target,
         .optimize = optimize,
     });
-    mod.addCSourceFiles(.{
+    lib.addCSourceFiles(.{
         .root = b.path("library"),
         .files = &all_sources,
         .flags = flags,
     });
-    mod.addIncludePath(b.path("include"));
+    lib.addIncludePath(b.path("include"));
 
-    const lib = b.addStaticLibrary(.{
-        .name = "mbedtls",
-        .root_module = mod,
-    });
     lib.linkLibC();
 
     lib.installHeadersDirectory(b.path("include"), ".", .{});
